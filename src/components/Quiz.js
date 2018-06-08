@@ -13,9 +13,12 @@ class Quiz extends Component {
   }
 
   render() {
+    const isSubmitDisabled = this.props.quiz.some(quizQuestion => quizQuestion.selectedAnswer === null) ? true : false
+
     return (
       <div style={containerStyle}>
         {this.props.quiz.map((quizQuestion, index) => <QuizQuestion question={quizQuestion} index={index} />)}
+        <button style={buttonStyle} disabled={isSubmitDisabled}>Submit</button>
       </div>
     )
   }
@@ -39,4 +42,10 @@ const containerStyle = {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center'
+}
+
+const buttonStyle = {
+  fontSize: '1.1em',
+  padding: '8px',
+  marginTop: '20px'
 }
