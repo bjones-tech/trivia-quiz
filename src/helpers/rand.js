@@ -1,12 +1,12 @@
 export const rand = (max, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min
 
-export const getUniqueKeys = (length, count = 2) => {
-  const allKeys = Array.from({ length: length }, (val, key) => key)
+export const getUniqueKeys = (length, count) => {
+  const allKeys = Array.from({ length: length }, (val, index) => index)
 
   let uniqueKeys = []
 
   if (+count > +length) {
-    return uniqueKeys
+    count = +length
   }
 
   while (uniqueKeys.length !== count) {

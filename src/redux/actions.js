@@ -12,10 +12,13 @@ export const addQuestionToBank = question => ({
   payload: question
 })
 
-export const createNewQuiz = questionBank => {
-  const questionKeys = getUniqueKeys(questionBank.length, 2)
+export const createNewQuiz = (questionBank, questionCount) => {
+  const questionKeys = getUniqueKeys(questionBank.length, questionCount)
 
-  const quiz = questionKeys.map(val => questionBank[val])
+  const quiz = questionKeys.map(val => ({
+    ...questionBank[val],
+    selectedAnswer: null
+  }))
 
   return {
     type: CREATE_NEW_QUIZ,

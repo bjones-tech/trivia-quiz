@@ -6,8 +6,8 @@ class Quiz extends Component {
   constructor(props) {
     super(props)
 
-    if (props.quiz.length !== 2) {
-      props.createNewQuiz(this.props.questionBank)
+    if (props.quiz.length === 0) {
+      props.createNewQuiz(this.props.questionBank, 2)
     }
   }
 
