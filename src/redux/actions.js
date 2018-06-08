@@ -13,7 +13,7 @@ export const addQuestionToBank = question => ({
   payload: question
 })
 
-export const createNewQuiz = (questionBank, questionCount) => {
+export const createNewQuiz = (questionBank, questionCount = 2) => {
   const questionKeys = getUniqueKeys(questionBank.length, questionCount)
 
   const quiz = questionKeys.map(val => ({

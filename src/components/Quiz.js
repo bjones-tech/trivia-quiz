@@ -1,39 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { createNewQuiz } from '../redux/actions'
 import QuizQuestion from './QuizQuestion'
 
-class Quiz extends Component {
-  constructor(props) {
-    super(props)
+const Quiz = props => {
+  const isSubmitDisabled = props.quiz.some(question => question.selectedAnswer === null) ? true : false
 
-    if (props.quiz.length === 0) {
-      props.createNewQuiz(this.props.questionBank, 2)
-    }
-  }
-
-  render() {
-    const isSubmitDisabled = this.props.quiz.some(question => question.selectedAnswer === null) ? true : false
-
-    return (
-      <div style={containerStyle}>
-        {this.props.quiz.map((question, index) => <QuizQuestion question={question} index={index} />)}
-        <button style={buttonStyle} disabled={isSubmitDisabled}>Submit</button>
-      </div>
-    )
-  }
+  return (
+    <div style={containerStyle}>
+      {props.quiz.map((question, index) => <QuizQuestion question={question} index={index} />)}
+      <button style={buttonStyle} disabled={isSubmitDisabled}>Submit</button>
+    </div>
+  )
 }
 
 const mapStateToProps = state => ({
-  questionBank: state.questionBank,
   quiz: state.quiz
 })
 
-const mapDispatchToProps = {
-  createNewQuiz: createNewQuiz
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Quiz)
+export default connect(mapStateToProps)(Quiz)
 
 // inline styles
 

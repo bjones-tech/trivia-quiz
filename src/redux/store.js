@@ -20,3 +20,7 @@ store.dispatch(addQuestionToBank({
   question: 'Will the Yankees win tonight?',
   answer: true
 }))
+
+// create initial quiz
+
+store.dispatch(createNewQuiz(store.getState().questionBank))
