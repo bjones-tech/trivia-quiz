@@ -4,6 +4,7 @@ import { getUniqueKeys } from '../helpers/rand'
 
 export const ADD_QUESTION_TO_BANK = 'ADD_QUESTION_TO_BANK'
 export const CREATE_NEW_QUIZ = 'CREATE_NEW_QUIZ'
+export const UPDATE_ANSWER = 'UPDATE_ANSWER'
 
 // action creators
 
@@ -25,3 +26,8 @@ export const createNewQuiz = (questionBank, questionCount) => {
     payload: quiz
   }
 }
+
+export const updateAnswer = quizQuestion => ({
+  type: UPDATE_ANSWER,
+  payload: quizQuestion
+})
