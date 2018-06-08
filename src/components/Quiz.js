@@ -14,8 +14,8 @@ class Quiz extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.quiz.map(quizQuestion => <QuizQuestion question={quizQuestion} />)}
+      <div style={containerStyle}>
+        {this.props.quiz.map((quizQuestion, index) => <QuizQuestion question={quizQuestion} index={index} />)}
       </div>
     )
   }
@@ -31,3 +31,12 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Quiz)
+
+// inline styles
+
+const containerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
+}
