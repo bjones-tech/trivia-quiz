@@ -15,3 +15,8 @@ store.dispatch(addQuestionToBank({
   question: 'Is the earth square?',
   answer: false
 }))
+
+store.dispatch(addQuestionToBank({
+  question: 'Will the Yankees win tonight?',
+  answer: true
+}))

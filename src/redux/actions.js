@@ -1,4 +1,4 @@
-import { rand } from '../helpers/rand'
+import { getUniqueKeys } from '../helpers/rand'
 
 // actions
 
@@ -13,7 +13,9 @@ export const addQuestionToBank = question => ({
 })
 
 export const createNewQuiz = questionBank => {
-  const quiz = Array.from({length: 2}, () => questionBank[rand(questionBank.length-1)])
+  const questionKeys = getUniqueKeys(questionBank.length, 2)
+
+  const quiz = questionKeys.map(val => questionBank[val])
 
   return {
     type: CREATE_NEW_QUIZ,
