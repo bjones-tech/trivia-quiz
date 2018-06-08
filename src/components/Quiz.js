@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { createNewQuiz } from '../redux/actions'
+import QuizQuestion from './QuizQuestion'
 
 class Quiz extends Component {
   constructor(props) {
@@ -14,9 +15,7 @@ class Quiz extends Component {
   render() {
     return (
       <div>
-        {this.props.quiz.map(quizQuestion => {
-          return <h4>{quizQuestion.question}</h4>
-        })}
+        {this.props.quiz.map(quizQuestion => <QuizQuestion question={quizQuestion} />)}
       </div>
     )
   }
