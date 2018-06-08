@@ -13,11 +13,11 @@ class Quiz extends Component {
   }
 
   render() {
-    const isSubmitDisabled = this.props.quiz.some(quizQuestion => quizQuestion.selectedAnswer === null) ? true : false
+    const isSubmitDisabled = this.props.quiz.some(question => question.selectedAnswer === null) ? true : false
 
     return (
       <div style={containerStyle}>
-        {this.props.quiz.map((quizQuestion, index) => <QuizQuestion question={quizQuestion} index={index} />)}
+        {this.props.quiz.map((question, index) => <QuizQuestion question={question} index={index} />)}
         <button style={buttonStyle} disabled={isSubmitDisabled}>Submit</button>
       </div>
     )

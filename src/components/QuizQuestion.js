@@ -17,8 +17,14 @@ class QuizQuestion extends Component {
     return (
       <div style={containerStyle}>
         <h4>{this.props.question.question}</h4>
-        <input type='radio' name={radioName} value='1' onChange={this.handleChange} /><label style={labelStyle}>True</label>
-        <input type='radio' name={radioName} value='0' onChange={this.handleChange} /><label style={labelStyle}>False</label>
+
+        <input type='radio' name={radioName} onChange={this.handleChange} value='1'
+          checked={this.props.question.selectedAnswer === true} />
+        <label style={labelStyle}>True</label>
+
+        <input type='radio' name={radioName} onChange={this.handleChange} value='0'
+          checked={this.props.question.selectedAnswer === false} />
+        <label style={labelStyle}>False</label>
       </div>
     )
   }
