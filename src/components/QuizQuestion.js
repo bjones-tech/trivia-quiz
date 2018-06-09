@@ -15,7 +15,7 @@ class QuizQuestion extends Component {
     const radioName = `choice-${this.props.index}`
 
     return (
-      <div style={containerStyle}>
+      <div style={containerStyle} className='responsive-container'>
         <h4>{this.props.question.question}</h4>
 
         <input type='radio' name={radioName} id={`${radioName}-1`} onChange={this.handleChange} value='1'
@@ -44,7 +44,6 @@ export default connect(null, mapDispatchToProps)(QuizQuestion)
 // inline styles
 
 const containerStyle = {
-  width: '50%',
   border: '1px #ccc solid',
   borderRadius: '4px',
   margin: '20px',
