@@ -12,19 +12,19 @@ class QuizQuestion extends Component {
   }
 
   render() {
-    const radioName = `answer-${this.props.index}`
+    const radioName = `choice-${this.props.index}`
 
     return (
       <div style={containerStyle}>
         <h4>{this.props.question.question}</h4>
 
-        <input type='radio' name={radioName} onChange={this.handleChange} value='1'
+        <input type='radio' name={radioName} id={`${radioName}-1`} onChange={this.handleChange} value='1'
           checked={this.props.question.selectedAnswer === true} />
-        <label style={labelStyle}>True</label>
+        <label style={labelStyle} for={`${radioName}-1`}>True</label>
 
-        <input type='radio' name={radioName} onChange={this.handleChange} value='0'
+        <input type='radio' name={radioName} id={`${radioName}-0`} onChange={this.handleChange} value='0'
           checked={this.props.question.selectedAnswer === false} />
-        <label style={labelStyle}>False</label>
+        <label style={labelStyle} for={`${radioName}-0`}>False</label>
       </div>
     )
   }
@@ -52,6 +52,6 @@ const containerStyle = {
 }
 
 const labelStyle = {
-  marginLeft: '5px',
-  marginRight: '15px'
+  paddingLeft: '5px',
+  marginRight: '20px'
 }
