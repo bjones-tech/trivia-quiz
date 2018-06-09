@@ -29,7 +29,7 @@ class App extends Component {
         <div>
           <Header />
           <Quiz showResultsHandler={this.showResults} />
-          <ResultsModal isOpen={this.state.showResults}>
+          <ResultsModal style={modalStyle} isOpen={this.state.showResults}>
             <Results hideResultsHandler={this.hideResults} />
           </ResultsModal>
         </div>
@@ -39,3 +39,11 @@ class App extends Component {
 }
 
 export default App;
+
+// inline styles
+
+const modalStyle = {
+  overlay: {
+    backgroundColor: 'rgba(0,0,0,0.5)'
+  }
+}
